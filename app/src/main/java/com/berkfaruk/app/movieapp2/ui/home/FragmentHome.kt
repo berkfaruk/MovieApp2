@@ -17,4 +17,16 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getMovieList("bat")
     }
+
+    private fun observeViewModel(){
+        viewModel.data.observe(viewLifecycleOwner){ result ->
+
+        }
+        viewModel.isLoading.observe(viewLifecycleOwner){ loading ->
+
+        }
+        viewModel.error.observe(viewLifecycleOwner){ error ->
+
+        }
+    }
 }

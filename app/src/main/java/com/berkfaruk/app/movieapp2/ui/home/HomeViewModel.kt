@@ -16,9 +16,9 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val repository : MovieRepository
 )  : ViewModel(){
-     val _isLoading = MutableLiveData<Boolean>()
-    val error = MutableLiveData<String>()
-    val data = MutableLiveData<List<SearchModel>>()
+     val isLoading = MutableLiveData<Boolean>()
+    val error = MutableLiveData<String?>()
+    val data = MutableLiveData<List<SearchModel>?>()
 
 
     fun getMovieList(movieName : String){
@@ -28,13 +28,15 @@ class HomeViewModel @Inject constructor(
 
                 when(result){
                     is Resource.Error ->{
-                        Log.d("DataTest12", "getMovieList: ${result.message}")
+                        isLoading.value = false
+                        error.value = result.message
                     }
                     is Resource.Loading ->{
-                        Log.d("DataTest12", "loading: ")
+                        isLoading.value = true
                     }
                     is Resource.Success ->{
-                        Log.d("DataTest12", "getMovieList: ${result.data}")
+                        isLoading.value = false
+                        data.value = result.data
                     }
                 }
             }
