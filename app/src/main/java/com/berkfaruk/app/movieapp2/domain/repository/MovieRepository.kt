@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface MovieRepository {
 
     fun getMovieList(movieTitle:String) : Flow<Resource<List<SearchModel>>>
+    //
 }
