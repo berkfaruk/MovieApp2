@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.berkfaruk.app.movieapp2.data.api.MovieApi
+import com.berkfaruk.app.movieapp2.data.repository.MovieRepositoryImpl
 import com.berkfaruk.app.movieapp2.domain.model.SearchModel
 import com.berkfaruk.app.movieapp2.domain.repository.MovieRepository
 import com.berkfaruk.app.movieapp2.utils.Resource

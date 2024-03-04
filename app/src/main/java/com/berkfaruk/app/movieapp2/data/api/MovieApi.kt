@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MovieApi {
-
+//Burası api'ye istek attığımız kısım
     @GET("/")
     suspend fun getMovieList(
         @Query("s") movieTitle : String,
