@@ -2,6 +2,7 @@ package com.berkfaruk.app.movieapp2.di
 
 import com.berkfaruk.app.movieapp2.data.api.MovieApi
 import com.berkfaruk.app.movieapp2.data.repository.MovieRepositoryImpl
+import com.berkfaruk.app.movieapp2.database.MoviesDatabase
 import com.berkfaruk.app.movieapp2.domain.repository.MovieRepository
 import com.berkfaruk.app.movieapp2.utils.Const.BASE_URL
 import dagger.Module
@@ -28,9 +29,10 @@ object AppModule{
     @Provides
     @Singleton
     fun provideMovieRepository(
-        api : MovieApi
+        api : MovieApi,
+        database: MoviesDatabase
     ) : MovieRepository{
-        return MovieRepositoryImpl(api)
+        return MovieRepositoryImpl(api,database.moviesDao)
     }
 
 }

@@ -50,6 +50,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     kapt("androidx.room:room-compiler:2.3.0")
+    implementation ("androidx.room:room-ktx:2.4.2")
 
 // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")

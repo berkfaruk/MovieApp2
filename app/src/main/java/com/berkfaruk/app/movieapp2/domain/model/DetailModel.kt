@@ -1,7 +1,11 @@
 package com.berkfaruk.app.movieapp2.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity(tableName = "movies_detail")
 data class DetailModel(
+    @PrimaryKey()
     val Actors: String,
     val Awards: String,
     val BoxOffice: String,
@@ -15,7 +19,7 @@ data class DetailModel(
     val Poster: String,
     val Production: String,
     val Rated: String,
-    val Ratings: List<Rating>,
+    //val Ratings: List<Rating>,
     val Released: String,
     val Response: String,
     val Runtime: String,

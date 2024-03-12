@@ -1,6 +1,7 @@
 package com.berkfaruk.app.movieapp2.data.repository
 
 import com.berkfaruk.app.movieapp2.data.api.MovieApi
+import com.berkfaruk.app.movieapp2.database.MoviesDao
 import com.berkfaruk.app.movieapp2.domain.model.DetailModel
 import com.berkfaruk.app.movieapp2.domain.model.SearchModel
 import com.berkfaruk.app.movieapp2.domain.repository.MovieRepository
@@ -11,12 +12,14 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor(
-    private val api : MovieApi
+    private val api : MovieApi,
+    private val dao : MoviesDao
 ) : MovieRepository  {
     override fun getMovieList(movieTitle: String): Flow<Resource<List<SearchModel>>> = flow{
         emit(Resource.Loading())
         try {
             val data = api.getMovieList(movieTitle).Search
+            dao.addMovies(data)
             emit(Resource.Success(data))
         }catch (e : Exception){
             emit(Resource.Error(e.localizedMessage ?: "Unexpected Error", data = emptyList()))
@@ -32,5 +35,10 @@ class MovieRepositoryImpl @Inject constructor(
             emit(Resource.Error(e.localizedMessage ?: "Unexpected Error"))
         }
     }
+
+    override fun getMovieFromLocal(): Flow<List<SearchModel>> {
+        return dao.getAllMovies()
+    }
+
 
 }

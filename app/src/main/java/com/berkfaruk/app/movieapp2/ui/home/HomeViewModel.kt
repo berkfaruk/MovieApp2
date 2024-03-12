@@ -7,6 +7,7 @@ import com.berkfaruk.app.movieapp2.domain.model.SearchModel
 import com.berkfaruk.app.movieapp2.domain.repository.MovieRepository
 import com.berkfaruk.app.movieapp2.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,6 +18,7 @@ class HomeViewModel @Inject constructor(
      val isLoading = MutableLiveData<Boolean>()
     val error = MutableLiveData<String?>()
     val data = MutableLiveData<List<SearchModel>?>()
+    val roomData = MutableLiveData<List<SearchModel>?>()
 
 
     fun getMovieList(movieName : String){
@@ -39,6 +41,18 @@ class HomeViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    fun getMovieListFromDatabase() {
+
+        viewModelScope.launch {
+            val list = repository.getMovieFromLocal().collect{
+
+                roomData.value = it
+
+            }
+        }
+
     }
 
 

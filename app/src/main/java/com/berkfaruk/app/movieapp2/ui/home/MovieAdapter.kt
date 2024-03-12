@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.berkfaruk.app.movieapp2.MyDiffUtil
 import com.berkfaruk.app.movieapp2.databinding.ItemMovieBinding
 import com.berkfaruk.app.movieapp2.domain.model.SearchModel
 import com.berkfaruk.app.movieapp2.utils.downloadFromUrl

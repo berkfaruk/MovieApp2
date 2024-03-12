@@ -11,4 +11,6 @@ interface MovieRepository {
 
     fun getMovieDetail(imdbId : String) : Flow<Resource<DetailModel>>
 
+    fun getMovieFromLocal() : Flow<List<SearchModel>>
+
 }

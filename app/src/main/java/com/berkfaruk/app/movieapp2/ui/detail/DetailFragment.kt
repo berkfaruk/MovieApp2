@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import com.berkfaruk.app.movieapp2.R
 import com.berkfaruk.app.movieapp2.databinding.FragmentDetailBinding
 import com.berkfaruk.app.movieapp2.utils.downloadFromUrl
 import com.berkfaruk.app.movieapp2.utils.placeHolderProgressBar
@@ -56,10 +57,14 @@ class DetailFragment : Fragment() {
                 binding.movieDetailRuntime.text = "Runtime: ${it.Runtime}"
                 binding.movieDetailGenre.text = "Genre: ${it.Genre}"
                 binding.movieDetailDirector.text = "Director: ${it.Director}"
-                binding.movieDetailActors.text = "Actors: ${it.Actors}"
+
+                binding.movieDetailActors.text = String.format(getString(R.string.actors),it.Actors)
+
                 binding.movieDetailImdbrate.text = "ImdbRating: ${it.imdbRating}"
                 binding.movieDetailMetascore.text = "Metascore: ${it.Metascore}"
                 binding.movieDetailPlot.text = "Plot: ${it.Plot}"
+
+                //databinding yapılacak
 
 
             }

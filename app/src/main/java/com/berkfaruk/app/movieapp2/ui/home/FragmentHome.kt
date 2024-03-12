@@ -42,6 +42,9 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
         observeViewModel()
         buttonClicked()
 
+        viewModel.getMovieListFromDatabase()
+
+
     }
 
     private fun observeViewModel(){
@@ -59,7 +62,16 @@ class FragmentHome : Fragment(R.layout.fragment_home) {
             Log.d("DataResponse", "observeViewModel: ${error}")
 
         }
+
+        viewModel.roomData.observe(viewLifecycleOwner) {result ->
+
+            Log.d("RoomDataResponse", "observeViewModel: ${result}")
+
+        }
     }
+
+
+
 
     fun buttonClicked() {
         binding.searchButton.setOnClickListener {

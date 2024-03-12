@@ -1,4 +1,4 @@
-package com.berkfaruk.app.movieapp2
+package com.berkfaruk.app.movieapp2.ui.home
 
 import androidx.recyclerview.widget.DiffUtil
 import com.berkfaruk.app.movieapp2.domain.model.SearchModel
