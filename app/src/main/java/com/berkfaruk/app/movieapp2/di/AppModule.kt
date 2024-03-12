@@ -32,6 +32,5 @@ object AppModule{
     ) : MovieRepository{
         return MovieRepositoryImpl(api)
     }
-//Singleton ile kapsam Application
-    //Provides?
+
 }

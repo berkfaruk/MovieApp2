@@ -2,10 +2,19 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<LinearLayout
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<RelativeLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <EditText
     android:id="@+id/search_text"
@@ -13,14 +22,14 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_margin="5dp"
-    android:hint="Search Movie Name"
+    android:hint="@string/search_movie_name"
     android:textSize="26sp" />
 
     <Button
         android:id="@+id/search_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search"
+        android:text="@string/search"
         android:textStyle="bold"
         android:textSize="25sp"
         android:padding="5dp"
@@ -35,6 +44,20 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-</LinearLayout>
+    </LinearLayout>
+
+<ProgressBar
+    android:id="@+id/fragmentHomeProgressBar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:visibility="gone">
+
+</ProgressBar>
+
+</RelativeLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </layout>

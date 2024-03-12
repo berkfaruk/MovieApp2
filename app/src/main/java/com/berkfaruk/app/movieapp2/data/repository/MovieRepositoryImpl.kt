@@ -1,6 +1,7 @@
 package com.berkfaruk.app.movieapp2.data.repository
 
 import com.berkfaruk.app.movieapp2.data.api.MovieApi
+import com.berkfaruk.app.movieapp2.domain.model.DetailModel
 import com.berkfaruk.app.movieapp2.domain.model.SearchModel
 import com.berkfaruk.app.movieapp2.domain.repository.MovieRepository
 import com.berkfaruk.app.movieapp2.utils.Resource
@@ -18,12 +19,18 @@ class MovieRepositoryImpl @Inject constructor(
             val data = api.getMovieList(movieTitle).Search
             emit(Resource.Success(data))
         }catch (e : Exception){
+            emit(Resource.Error(e.localizedMessage ?: "Unexpected Error", data = emptyList()))
+        }
+    }
+
+    override fun getMovieDetail(imdbId: String): Flow<Resource<DetailModel>> = flow {
+        emit(Resource.Loading())
+        try {
+            val movieDetail = api.getMovieDetail(imdbId = imdbId)
+            emit(Resource.Success(movieDetail))
+        } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage ?: "Unexpected Error"))
         }
     }
-//Yukarıda constructor injection olayı var
-    //MovieRepository'den kalıtım alarak override fun yapıyoruz.
-    //Flow'da coroutine'lerdeki asenkron çalışma olayını sağlıyor.
-    //emit? Resource sınıfındaki oluşturulan sınıfları geri döndürüyor.
 
 }

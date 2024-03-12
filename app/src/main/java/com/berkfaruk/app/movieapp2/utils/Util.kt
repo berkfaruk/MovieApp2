@@ -2,11 +2,11 @@ package com.berkfaruk.app.movieapp2.utils
 
 import android.content.Context
 import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.berkfaruk.app.movieapp2.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-
 fun ImageView.downloadFromUrl(url: String?, progressDrawable: CircularProgressDrawable) {
     val options = RequestOptions()
         .placeholder(progressDrawable)

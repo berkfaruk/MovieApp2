@@ -4,5 +4,4 @@ object Const {
 
     const val BASE_URL = "https://www.omdbapi.com"
     const val API_KEY = "106e722c"
-    //Bir obje oluşturup 2 sabit
 }

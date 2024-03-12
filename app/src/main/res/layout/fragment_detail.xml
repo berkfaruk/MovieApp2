@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.DetailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/movie_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:paddingTop="10dp"
+            android:scaleType="fitCenter"
+            android:minHeight="200dp">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/movie_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_image"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+        <TextView
+            android:id="@+id/movie_detail_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_title"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+        <TextView
+            android:id="@+id/movie_detail_runtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_year"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+        <TextView
+            android:id="@+id/movie_detail_genre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_runtime"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+        <TextView
+            android:id="@+id/movie_detail_director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_genre"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+
+        <TextView
+            android:id="@+id/movie_detail_imdbrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_director"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+        <TextView
+            android:id="@+id/movie_detail_metascore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_imdbrate"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+        <TextView
+            android:id="@+id/movie_detail_actors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_metascore"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+        <TextView
+            android:id="@+id/movie_detail_plot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movie_detail_actors"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="7dp" />
+
+        <ProgressBar
+            android:id="@+id/detail_fragment_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+        </ProgressBar>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
