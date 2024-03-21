@@ -2,12 +2,29 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="moviesDetail"
+            type="com.berkfaruk.app.movieapp2.domain.model.DetailModel" />
+    </data>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailFragment">
 
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -23,7 +40,8 @@
             android:layout_alignParentTop="true"
             android:paddingTop="10dp"
             android:scaleType="fitCenter"
-            android:minHeight="200dp">
+            android:minHeight="200dp"
+            android:downloadUrl="@{moviesDetail.poster}">
 
         </ImageView>
 
@@ -32,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_image"
+            android:text="@{moviesDetail.title}"
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_centerHorizontal="true"
@@ -42,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_title"
+            android:text="@{moviesDetail.year}"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp" />
@@ -51,6 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_year"
+            android:text="@{@string/runtime + moviesDetail.runtime}"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp" />
@@ -60,6 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_runtime"
+            android:text="@{@string/genre + moviesDetail.genre}"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp" />
@@ -69,6 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_genre"
+            android:text="@{@string/director + moviesDetail.director}"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp" />
@@ -79,6 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_director"
+            android:text="@{@string/imdbRating + moviesDetail.imdbRating}"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp" />
@@ -88,6 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_imdbrate"
+            android:text="@{@string/metaScore + moviesDetail.metascore}"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp" />
@@ -97,6 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_metascore"
+            android:text="@{@string/actors + moviesDetail.actors}"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp" />
@@ -106,9 +132,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/movie_detail_actors"
+            android:text="@{@string/plot + moviesDetail.plot}"
             android:textSize="18sp"
             android:layout_centerHorizontal="true"
             android:layout_margin="7dp" />
+
+
+
+    </RelativeLayout>
 
         <ProgressBar
             android:id="@+id/detail_fragment_progress_bar"

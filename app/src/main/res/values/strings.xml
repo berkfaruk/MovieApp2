@@ -2,7 +2,13 @@
     <string name="app_name">MovieApp2</string>
     <string name="search">Search</string>
     <string name="search_movie_name">Search Movie Name</string>
-    <string name="actors">Actors: %d</string>
+    <string name="actors">Actors: </string>
+    <string name="runtime">Runtime: </string>
+    <string name="genre">Genre: </string>
+    <string name="director">Director: </string>
+    <string name="imdbRating">ImdbRating: </string>
+    <string name="metaScore">MetaScore: </string>
+    <string name="plot">Plot: </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="movies"
+            type="com.berkfaruk.app.movieapp2.domain.model.SearchModel" />
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -12,7 +19,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:padding="3dp">
+            android:padding="3dp"
+            android:downloadUrl="@{movies.poster}">
 
         </ImageView>
 
@@ -29,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Movie Name"
+                android:text="@{movies.title}"
                 android:textSize="20sp"
                 android:textStyle="bold" >
 
@@ -39,7 +47,7 @@
                 android:id="@+id/movie_genre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Movie Genre"
+                android:text="@{movies.type}"
                 android:textSize="16sp"
                 android:padding="5dp" />
 

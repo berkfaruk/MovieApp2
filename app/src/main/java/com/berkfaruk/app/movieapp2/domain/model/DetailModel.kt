@@ -1,11 +1,5 @@
 package com.berkfaruk.app.movieapp2.domain.model
-
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "movies_detail")
 data class DetailModel(
-    @PrimaryKey()
     val Actors: String,
     val Awards: String,
     val BoxOffice: String,

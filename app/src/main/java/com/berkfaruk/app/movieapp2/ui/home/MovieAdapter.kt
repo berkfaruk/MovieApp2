@@ -29,9 +29,7 @@ class MovieAdapter(var movieList: List<SearchModel>?): RecyclerView.Adapter<Movi
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         movieList?.let {
-            holder.binding.movieTitle.text = it[position].Title
-            holder.binding.movieGenre.text = it[position].Type
-            holder.binding.moviePoster.downloadFromUrl(it[position].Poster, placeHolderProgressBar(holder.itemView.context))
+            holder.binding.movies = it[position]
         }
 
         holder.itemView.setOnClickListener {view ->

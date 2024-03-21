@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import com.berkfaruk.app.movieapp2.R
 import com.berkfaruk.app.movieapp2.databinding.FragmentDetailBinding
-import com.berkfaruk.app.movieapp2.utils.downloadFromUrl
-import com.berkfaruk.app.movieapp2.utils.placeHolderProgressBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,27 +48,13 @@ class DetailFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.data.observe(viewLifecycleOwner) { movies ->
             movies?.let {
-                binding.movieDetailImage.downloadFromUrl(it.Poster, placeHolderProgressBar(binding.root.context))
-                binding.movieDetailTitle.text = it.Title
-                binding.movieDetailYear.text = it.Year
-                binding.movieDetailRuntime.text = "Runtime: ${it.Runtime}"
-                binding.movieDetailGenre.text = "Genre: ${it.Genre}"
-                binding.movieDetailDirector.text = "Director: ${it.Director}"
-
-                binding.movieDetailActors.text = String.format(getString(R.string.actors),it.Actors)
-
-                binding.movieDetailImdbrate.text = "ImdbRating: ${it.imdbRating}"
-                binding.movieDetailMetascore.text = "Metascore: ${it.Metascore}"
-                binding.movieDetailPlot.text = "Plot: ${it.Plot}"
-
-                //databinding yapılacak
-
-
+                binding.moviesDetail = it
             }
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) { loading ->
             binding.detailFragmentProgressBar.isVisible = loading
+            binding.relativeLayout.isVisible = !loading
         }
     }
 

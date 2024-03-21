@@ -1,5 +1,6 @@
 package com.berkfaruk.app.movieapp2.ui.home
 
+
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,7 +8,6 @@ import com.berkfaruk.app.movieapp2.domain.model.SearchModel
 import com.berkfaruk.app.movieapp2.domain.repository.MovieRepository
 import com.berkfaruk.app.movieapp2.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
