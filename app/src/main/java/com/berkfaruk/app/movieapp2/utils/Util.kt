@@ -10,7 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 fun ImageView.downloadFromUrl(url: String?, progressDrawable: CircularProgressDrawable) {
     val options = RequestOptions()
         .placeholder(progressDrawable)
-        .error(R.mipmap.ic_launcher_round)
+        //.error(R.mipmap.ic_launcher_round)
 
     Glide.with(context)
         .setDefaultRequestOptions(options)

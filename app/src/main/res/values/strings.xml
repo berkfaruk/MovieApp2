@@ -6,9 +6,10 @@
     <string name="runtime">Runtime: </string>
     <string name="genre">Genre: </string>
     <string name="director">Director: </string>
-    <string name="imdbRating">ImdbRating: </string>
+    <string name="imdbRating">Imdb: </string>
     <string name="metaScore">MetaScore: </string>
-    <string name="plot">Plot: </string>
+    <string name="plot">Summary: </string>
+    <string name="toolbarTitle">Movie App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

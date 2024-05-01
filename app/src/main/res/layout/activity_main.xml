@@ -6,12 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:title="@string/app_name"
+            android:layout_width="match_parent"
+            android:background="@color/black"
+            app:titleTextColor="@color/white"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_nav"
         tools:layout_editor_absoluteX="1dp"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
@@ -15,27 +15,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize">
 
-    <EditText
-    android:id="@+id/search_text"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_margin="5dp"
-    android:hint="@string/search_movie_name"
-    android:textSize="26sp" />
-
-    <Button
-        android:id="@+id/search_button"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="5dp"
+        app:endIconMode="clear_text"
+        android:hint="@string/search_movie_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconDrawable="@drawable/baseline_search_24"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/search"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:padding="5dp"
-        android:layout_margin="1dp"
-        />
+        android:textColorHint="@color/white"
+        app:shapeAppearance="@style/Rounded">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_text"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

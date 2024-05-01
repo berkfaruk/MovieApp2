@@ -37,6 +37,7 @@ class HomeViewModel @Inject constructor(
                     is Resource.Success ->{
                         isLoading.value = false
                         data.value = result.data
+                        showMovies(data.value)
                     }
                 }
             }
@@ -47,12 +48,21 @@ class HomeViewModel @Inject constructor(
 
         viewModelScope.launch {
             val list = repository.getMovieFromLocal().collect{
-
                 roomData.value = it
+                showMovies(it)
 
             }
         }
 
+    }
+
+    private fun showMovies(movieList: List<SearchModel>?) {
+        data.value = movieList
+        isLoading.value = false
+    }
+
+    fun refreshData() {
+        getMovieListFromDatabase()
     }
 
 

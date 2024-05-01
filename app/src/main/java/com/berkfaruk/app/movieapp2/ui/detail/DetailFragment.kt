@@ -7,24 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import com.berkfaruk.app.movieapp2.BaseFragment
+import com.berkfaruk.app.movieapp2.MainActivity
+import com.berkfaruk.app.movieapp2.R
 import com.berkfaruk.app.movieapp2.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailFragment : Fragment() {
-
-    private var _binding : FragmentDetailBinding? = null
-    private val binding get() = _binding!!
+class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
     private val viewModel by viewModels<DetailViewModel>()
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as MainActivity).supportActionBar?.title = "Movie Details"
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
 
@@ -35,14 +31,11 @@ class DetailFragment : Fragment() {
 
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentDetailBinding.inflate(inflater,container,false)
-        val view = binding.root
-        return view
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentDetailBinding? {
+        return FragmentDetailBinding.inflate(inflater, container, false)
     }
 
     private fun observeViewModel() {
@@ -52,9 +45,10 @@ class DetailFragment : Fragment() {
             }
         }
 
+
         viewModel.isLoading.observe(viewLifecycleOwner) { loading ->
             binding.detailFragmentProgressBar.isVisible = loading
-            binding.relativeLayout.isVisible = !loading
+            binding.scrollView.isVisible = !loading
         }
     }
 

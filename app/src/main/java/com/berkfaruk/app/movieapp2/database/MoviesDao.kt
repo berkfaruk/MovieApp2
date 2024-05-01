@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface MoviesDao {
 
-    @Query("SELECT * FROM movies_search ORDER BY Title DESC")
+    @Query("SELECT * FROM movies_search")
     fun getAllMovies() : Flow<List<SearchModel>>
     //movienin ismine göre sorgu gelsin
 

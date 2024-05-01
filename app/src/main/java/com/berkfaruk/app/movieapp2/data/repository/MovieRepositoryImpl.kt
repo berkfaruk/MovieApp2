@@ -19,6 +19,7 @@ class MovieRepositoryImpl @Inject constructor(
         emit(Resource.Loading())
         try {
             val data = api.getMovieList(movieTitle).Search
+            dao.deleteMovie()
             dao.addMovies(data)
             emit(Resource.Success(data))
         }catch (e : Exception){
